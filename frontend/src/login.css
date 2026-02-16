@@ -1,60 +1,84 @@
-/* Reset default margins */
+/* ============================ */
+/* Full Page Centered Container */
+/* ============================ */
 html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
+  background-color: #f2f2f2;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Full Page Center */
+/* Page wrapper to center content */
 .auth-page {
-  height: 100vh;
+  min-height: 100vh; /* safer than height: 100vh */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px; /* small padding for mobile screens */
   background-color: #f2f2f2;
 }
 
-/* Box */
+/* ============================ */
+/* Auth Box Styling */
+/* ============================ */
 .auth-box {
   width: 100%;
-  max-width: 360px;
+  max-width: 380px;
   background-color: #ffffff;
-  padding: 30px;
-  border-radius: 6px;
+  padding: 40px 30px;
+  border-radius: 10px;
   border: 1px solid #ddd;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.auth-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* ============================ */
 /* Heading */
+/* ============================ */
 .auth-box h1 {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 22px;
+  margin-bottom: 25px;
+  font-size: 24px;
   color: #333;
+  font-weight: 600;
 }
 
-/* Form Group */
+/* ============================ */
+/* Form Group Styling */
+/* ============================ */
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
-/* Label */
 label {
   font-size: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  color: #555;
 }
 
-/* Input */
 input {
-  padding: 8px;
+  padding: 10px 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 input:focus {
   outline: none;
-  border-color: #666;
+  border-color: #0AC4E0;
+  box-shadow: 0 0 5px rgba(10,196,224,0.3);
 }
 
 /* Password Wrapper */
@@ -63,13 +87,12 @@ input:focus {
 }
 
 .password-wrapper input {
-  width: 100%;
-  padding-right: 35px;
+  padding-right: 40px;
 }
 
 .toggle-btn {
   position: absolute;
-  right: 12px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   border: none;
@@ -82,31 +105,41 @@ input:focus {
   justify-content: center;
 }
 
-/* Button */
+/* ============================ */
+/* Submit Button */
+/* ============================ */
 .submit-btn {
   width: 100%;
-  padding: 10px;
-  background-color: #333;
+  padding: 12px;
+  background-color: #0AC4E0;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .submit-btn:hover {
-  background-color: #555;
+  background-color: #08a3c2;
+  transform: translateY(-2px);
 }
 
-/* Bottom Text */
+/* ============================ */
+/* Bottom Text / Links */
+/* ============================ */
 .bottom-text {
   text-align: center;
-  margin-top: 12px;
+  margin-top: 15px;
   font-size: 14px;
+  color: #555;
 }
 
 .bottom-text a {
-  color: #333;
+  color: #0AC4E0;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .bottom-text a:hover {
