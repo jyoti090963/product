@@ -1,27 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { handleSuccess } from "../utils";
+import React from "react";
+import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import CartContext from "../CartContext";
 import "../home.css";
 import productsdata from "../data";
 
 function Home() {
-  const [loggedInUser, setLoggedInUser] = useState("");
-  const navigate = useNavigate();
-  const { addToCart } = useContext(CartContext);
-
-  useEffect(() => {
-    setLoggedInUser(localStorage.getItem("loggedInUser"));
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("loggedInUser");
-    handleSuccess("User Logged out");
-    setTimeout(() => navigate("/login"), 1000);
-  };
-
   return (
     <div className="home">
       <ToastContainer />
@@ -48,23 +31,16 @@ function Home() {
         <div className="product-grid">
           {productsdata.slice(0, 5).map((item) => (
             <div className="card" key={item.id}>
-
               {/* IMAGE CLICK → SEND PRODUCT */}
               <Link to="/homep" state={{ product: item }}>
                 <img src={item.thumbnail} alt={item.title} />
               </Link>
               <h3>{item.title}</h3>
-           
 
               {/* VIEW BUTTON */}
               <Link to="/homep" state={{ product: item }}>
-                <button
-                  className="add-cart-btn">
-                  View Product
-                </button>
+                <button className="add-cart-btn">View Product</button>
               </Link>
-
-
             </div>
           ))}
         </div>
