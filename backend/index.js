@@ -13,8 +13,10 @@ const PORT = process.env.PORT || 8080;
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://product-lac-ten.vercel.app/"
+    "https://product-lac-ten.vercel.app",
+    "https://welcomtoproductstore.vercel.app"
   ],
+
   credentials: true
 }));
 
