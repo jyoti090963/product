@@ -31,7 +31,7 @@ function Signup() {
         }
 
         try {
-            const response = await fetch("http://localhost:8080/auth/signup", {
+            const response = await fetch("https://product-lac-ten.vercel.app/auth/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(signupInfo)
