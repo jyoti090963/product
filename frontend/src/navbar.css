@@ -1,0 +1,256 @@
+/* ===== NAVBAR - MODERN DARK THEME ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 70px; /* prevent content hiding under fixed navbar */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* main navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: #0f172a;  /* deep navy */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 999;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* LOGO */
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #fff, #bdd3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: opacity 0.2s;
+  cursor: default;
+}
+
+/* TOGGLE BUTTON - hidden by default on all screens */
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  transition: background 0.2s;
+  align-items: center;
+  justify-content: center;
+}
+
+/* DESKTOP LINKS - always visible on laptop/tablet */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+  padding: 4px 0;
+}
+
+/* animated underline */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ff6b6b;
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  padding: 8px 22px;
+  background: linear-gradient(145deg, #e03131, #c92a2a);
+  border: none;
+  color: white;
+  border-radius: 40px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 18px -6px rgba(224, 49, 49, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-btn:hover {
+  background: linear-gradient(145deg, #c92a2a, #b02525);
+  transform: scale(1.04);
+  box-shadow: 0 12px 24px -8px rgba(201, 42, 42, 0.6);
+}
+
+/* ================= PHONE ONLY (≤ 600px) ================= */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  /* show toggle button ONLY on phone */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* hide desktop menu by default on phone */
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #111c2e;
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 20px;
+    transform: translateY(-150%);
+    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+    z-index: 1500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 24px 24px;
+    
+    /* override desktop flex */
+    display: flex;
+  }
+
+  /* show menu when toggled - phone only */
+  .nav-links.show {
+    transform: translateY(0);
+  }
+
+  /* bigger links for mobile touch */
+  .nav-links a {
+    font-size: 18px;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-links a:last-of-type {
+    border-bottom: none;
+  }
+
+  /* remove underline effect on mobile */
+  .nav-links a::after {
+    display: none;
+  }
+
+  /* logout button bigger & centered */
+  .logout-btn {
+    margin-top: 12px;
+    padding: 12px 36px;
+    font-size: 16px;
+    width: fit-content;
+    min-width: 160px;
+  }
+}
+
+/* ================= SMALL PHONES (≤ 480px) ================= */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .menu-toggle {
+    font-size: 28px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-links {
+    padding: 30px 16px;
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .logout-btn {
+    padding: 10px 28px;
+    min-width: 140px;
+  }
+}
+
+/* optional overlay */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+  z-index: 1400;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* prevent body scroll when menu open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* subtle active state for current page */
+.nav-links a.active {
+  color: #ff8a8a;
+  font-weight: 600;
+}
+
+/* fancy hamburger icon animation */
+.menu-toggle svg {
+  transition: transform 0.2s;
+}
+
+.menu-toggle.active svg {
+  transform: rotate(90deg);
+}
