@@ -1,3 +1,10 @@
+/* Reset default margins */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 /* Full Page Center */
 .auth-page {
   height: 100vh;
@@ -61,7 +68,7 @@ input:focus {
 }
 
 .toggle-btn {
-   position: absolute;
+  position: absolute;
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
